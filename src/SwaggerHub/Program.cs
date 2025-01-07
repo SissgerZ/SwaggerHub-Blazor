@@ -1,13 +1,16 @@
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
-using SwaggerHub.Data;
+using SwaggerHub.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
+
+// Add configuration
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+// Register ApplicationUrls configuration
+builder.Services.Configure<ApplicationSettings>(builder.Configuration.GetSection("Application"));
 
 var app = builder.Build();
 

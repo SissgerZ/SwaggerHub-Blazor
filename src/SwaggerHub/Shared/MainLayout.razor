@@ -2,18 +2,14 @@
 
 <PageTitle>SwaggerHub</PageTitle>
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
+<div class="page" style="display: flex; height: 100vh;">
+    <div class="sidebar" >
+        <div style="flex: 0 0 auto; min-height: 100vh; background-color: #1b1b1b">
+            <NavMenu />
+        </div>
     </div>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
+    <main style="flex: 1 1 auto; overflow: auto;">
+        @Body
     </main>
 </div>
